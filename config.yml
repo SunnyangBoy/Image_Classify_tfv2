@@ -1,0 +1,36 @@
+
+train:
+  data_loader:
+    batch_size: 1
+    resize_shape: [600, 600]
+    train_and_val: 0.8
+    train_img: './data/sample/train_data/train_images'
+    train_txt: './data/sample/train_data/train.txt'
+  save_model:
+    h5_savePath: './saved_models/model_batch{batch}.h5'
+    save_freq: 5000
+    pb_save_path: "./saved_models/train"
+  base_model:
+    input_shape: [600, 600, 3]
+    pretrain_model: './pretrain_models/vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5'
+    trainable: True
+    model_name: None
+    num_classes: 4
+  log_dir: "./logs"
+  epochs: 50
+  learning_rate: 0.001
+
+
+test:
+  pb_load_path: './saved_models/train'
+  test_img: './data/sample/test_data/test_images'
+  test_txt: './data/sample/test_data/test.txt'
+
+
+infer:
+  infer_img: './data/sample/infer_data/'
+
+
+
+
+
